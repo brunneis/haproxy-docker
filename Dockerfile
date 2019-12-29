@@ -1,5 +1,5 @@
-# Apache HTTP Server (Vanilla) on CentOS.
-# Copyright (C) 2017-2020 Rodrigo Martínez <dev@brunneis.com>
+# HAProxy (Vanilla) on CentOS.
+# Copyright (C) 2019-2020 Rodrigo Martínez <dev@brunneis.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,12 +16,13 @@ FROM centos:8
 LABEL maintainer="dev@brunneis.com"
 
 ################################################
-# APACHE HTTP SERVER
+# HAPROXY
 ################################################
 
 ARG HAPROXY_VERSION
+ARG HAPROXY_MAIN_VERSION
 ENV HAPROXY_ARCHIVE haproxy-$HAPROXY_VERSION.tar.gz
-ENV HAPROXY_ARCHIVE_URL https://www.haproxy.org/download/2.1/src/$HAPROXY_ARCHIVE
+ENV HAPROXY_ARCHIVE_URL https://www.haproxy.org/download/$HAPROXY_MAIN_VERSION/src/$HAPROXY_ARCHIVE
 ENV HAPROXY_SHA1_URL $HAPROXY_ARCHIVE_URL.md5
 
 ENV BUILD_PACKAGES \
